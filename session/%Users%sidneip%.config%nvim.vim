@@ -13,21 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +6 lua/mappings.lua
-badd +102 ~/.config/nvim/init.lua
-badd +358 ~/.config/nvim/lua/plugins/init.lua
-badd +9 ~/.config/nvim/lua/plugins/configs/lspconfig.lua
-badd +3 ~/.config/nvim/lua/plugins/configs/null-ls.lua
-badd +17 ~/.config/nvim/lua/plugins/configs/formatter.lua
+badd +2 ~/.config/nvim/.gitignore
+badd +0 ~/.config/nvim/lazy-lock.json
 argglobal
 %argdel
-$argadd .
-edit lua/mappings.lua
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
+$argadd NvimTree_1
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -35,13 +25,6 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-argglobal
-let s:l = 6 - ((5 * winheight(0) + 25) / 50)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 6
-normal! 05|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
