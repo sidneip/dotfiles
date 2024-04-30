@@ -38,12 +38,12 @@ vim.schedule(function()
   require "mappings"
 end)
 
-local wk = require("which-key")
-local telescope = require("telescope")
-telescope.load_extension('refactoring')
-telescope.load_extension('octo')
+local wk = require "which-key"
+local telescope = require "telescope"
+telescope.load_extension "refactoring"
+telescope.load_extension "octo"
 
-wk.register({
+wk.register {
   ["<leader>"] = {
     l = {
       name = "lsp",
@@ -69,7 +69,7 @@ wk.register({
     },
     g = {
       name = "git",
-      g = { "<cmd>Lazygit<CR>", "Lazygit"},
+      g = { "<cmd>Lazygit<CR>", "Lazygit" },
       s = { "<cmd>lua require('telescope.builtin').git_status()<CR>", "Git status" },
       c = { "<cmd>lua require('telescope.builtin').git_commits()<CR>", "Git commits" },
       b = { "<cmd>lua require('telescope.builtin').git_branches()<CR>", "Git branches" },
@@ -83,20 +83,23 @@ wk.register({
       name = "octo",
       p = { "<cmd>Octo pr list<cr>", "List PRs" },
       o = { "<cmd>Octo pr create<cr>", "Create PR" },
-    }
-  }
+    },
+  },
+}
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = "Neoformat",
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
-  command = "Neoformat"
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("Neoformat")
-    end
+  callback = function()
+    vim.cmd "Neoformat"
+  end,
 })
 
 vim.g.neoformat_enabled_typescript = { "prettier" }
+require("mini.bracketed").setup()
+require("mini.surround").setup()
+require("mini.ai").setup()

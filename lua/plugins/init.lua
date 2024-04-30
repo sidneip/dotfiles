@@ -20,9 +20,22 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "lua-language-server", "stylua",
-        "html-lsp", "css-lsp" , "prettier", "typescript-language-server", "eslint-lsp", "css-lsp", "html-lsp", "prettier", "yaml-language-server",
-        "tsserver", 'jsonls', 'eslint_d', "prettierd", "eslint-lsp",
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        "typescript-language-server",
+        "eslint-lsp",
+        "css-lsp",
+        "html-lsp",
+        "prettier",
+        "yaml-language-server",
+        "tsserver",
+        "jsonls",
+        "eslint_d",
+        "prettierd",
+        "eslint-lsp",
       },
     },
   },
@@ -31,12 +44,20 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css", "javascript", "typescript", "tsx", "markdown", "markdown_inline",
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "markdown",
+        "markdown_inline",
       },
       indent = {
-        enable = true
-      }
+        enable = true,
+      },
     },
   },
   {
@@ -49,13 +70,13 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    config = function ()
+    config = function()
       require "plugins.configs.lint"
-    end
+    end,
   },
   {
     "mhartington/formatter.nvim",
-    event = 'VeryLazy',
+    event = "VeryLazy",
     opts = function()
       require "plugins.configs.formatter"
     end,
@@ -64,22 +85,22 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
     opts = function()
-      require("plugins.configs.null-ls")
+      require "plugins.configs.null-ls"
     end,
   },
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("plugins.configs.dap")
+      require "plugins.configs.dap"
     end,
   },
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
-    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       require("dapui").setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -90,7 +111,7 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
+    end,
   },
   {
     "kdheepak/lazygit.nvim",
@@ -109,19 +130,19 @@ return {
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
   {
     "github/copilot.vim",
     lazy = false,
-    config = function()  -- Mapping tab is already used by NvChad
-      vim.g.copilot_no_tab_map = true;
-      vim.g.copilot_assume_mapped = true;
-      vim.g.copilot_tab_fallback = "  ";
+    config = function() -- Mapping tab is already used by NvChad
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_tab_fallback = "  "
       -- The mapping is set to other key, see custom/lua/mappings
       -- or run <leader>ch to see copilot mapping sectio
-    end
+    end,
   },
   {
     "folke/noice.nvim",
@@ -154,7 +175,7 @@ return {
         signature = {
           enabled = false,
         },
-      }
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -163,7 +184,7 @@ return {
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-    }
+    },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -181,16 +202,16 @@ return {
     config = true,
   },
   {
-    "folke/neodev.nvim"
+    "folke/neodev.nvim",
   },
   {
     "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup {}
-    end
+    end,
   },
   {
-      "tpope/vim-surround",
+    "tpope/vim-surround",
   },
   {
     "jose-elias-alvarez/typescript.nvim",
@@ -222,18 +243,18 @@ return {
     "pwntester/octo.nvim",
     lazy = false,
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'nvim-tree/nvim-web-devicons',
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("octo").setup({
+      require("octo").setup {
         enable_builtin = true,
         suppress_missing_scope = {
-          projects_v2 = true
-        }
-      })
-      vim.cmd([[hi OctoEditable guibg=none]])
+          projects_v2 = true,
+        },
+      }
+      vim.cmd [[hi OctoEditable guibg=none]]
     end,
   },
   {
@@ -254,27 +275,27 @@ return {
       "Rails",
       "Generate",
       "Runner",
-      "Extract"
-    }
+      "Extract",
+    },
   },
   {
     "rmagatti/goto-preview",
     config = function()
-      require('goto-preview').setup {
-        width = 120,              -- Width of the floating window
-        height = 25,              -- Height of the floating window
+      require("goto-preview").setup {
+        width = 120, -- Width of the floating window
+        height = 25, -- Height of the floating window
         default_mappings = false, -- Bind default mappings
-        debug = false,            -- Print debug information
-        opacity = nil,            -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        post_open_hook = nil,     -- A function taking two arguments, a buffer and a window to be ran as a hook.
+        debug = false, -- Print debug information
+        opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
         -- You can use "default_mappings = true" setup option
         -- Or explicitly set keybindings
-        vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>"),
-        vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>"),
-        vim.cmd("nnoremap gpP <cmd>lua require('goto-preview').close_all_win()<CR>"),
-        vim.cmd("nnoremap gpc <cmd>lua require('goto-preview').close_all_win()<CR>"),
+        vim.cmd "nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+        vim.cmd "nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+        vim.cmd "nnoremap gpP <cmd>lua require('goto-preview').close_all_win()<CR>",
+        vim.cmd "nnoremap gpc <cmd>lua require('goto-preview').close_all_win()<CR>",
       }
-    end
+    end,
   },
   {
     "folke/persistence.nvim",
@@ -328,7 +349,7 @@ return {
   {
     "windwp/nvim-ts-autotag",
     lazy = false,
-    ft = {"javascript", "javascriptreact", "typescript", "typescriptreact"},
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       require("nvim-ts-autotag").setup()
     end,
@@ -337,8 +358,8 @@ return {
     "klen/nvim-test",
     lazy = false,
     config = function()
-      require('nvim-test').setup()
-    end
+      require("nvim-test").setup()
+    end,
   },
   {
     "nvim-neotest/neotest",
@@ -346,8 +367,8 @@ return {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter"
-    }
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
   {
     "ellisonleao/gruvbox.nvim",
@@ -355,5 +376,6 @@ return {
   {
     "sbdchd/neoformat",
     lazy = false,
-  }
+  },
+  { "echasnovski/mini.nvim", version = false, lazy = false },
 }

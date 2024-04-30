@@ -19,8 +19,9 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle NvimTree" })
 
 -- Close and Save
-map("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
-map("n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
+map("n", "<leader>w", ":w<CR>", { desc = "Save", noremap = true, silent = true })
+map("n", "<leader>q", ":q<CR>", { desc = "Exit", noremap = true, silent = true })
+map("n", "<leader>Q", ":qall!<CR>", { desc = "Exit", noremap = true, silent = true })
 
 -- DAP
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })

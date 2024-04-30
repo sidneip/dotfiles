@@ -13,10 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +91 ~/.config/nvim/lua/mappings.lua
+badd +117 lua/mappings.lua
+badd +103 init.lua
+badd +1 ~/projects/gurupass/gurupass-core/node_modules/twilio/lib/rest/messaging/v1/tollfreeVerification.d.ts
+badd +1 lua/options.lua
+badd +1 lua/chadrc.lua
 argglobal
 %argdel
-$argadd NvimTree_1
+$argadd .
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
