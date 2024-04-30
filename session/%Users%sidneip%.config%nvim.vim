@@ -13,8 +13,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +2 ~/.config/nvim/.gitignore
-badd +0 ~/.config/nvim/lazy-lock.json
+badd +91 ~/.config/nvim/lua/mappings.lua
 argglobal
 %argdel
 $argadd NvimTree_1
