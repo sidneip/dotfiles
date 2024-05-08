@@ -8,10 +8,13 @@ M.ui = {
   -- theme = "solarized_osaka",
   theme = "jabuti",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    CursorLine = {
+      bg = "#313244",
+    },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 }
 
 M.nvimtree = {
@@ -19,6 +22,11 @@ M.nvimtree = {
   git = {
     enable = true,
   },
+}
+
+M.options = {
+  relativenumber = true,
+  scrolloff = 10,
 }
 
 M.general = {

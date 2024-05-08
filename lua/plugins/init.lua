@@ -64,10 +64,49 @@ return {
         "http",
         "json",
         "graphql",
+        "prisma",
+        "query",
+        "yaml",
+        "bash",
+        "dockerfile",
+        "gitignore",
       },
+      textobjects = {
+        select = {
+          enable = true,
+          keymaps = {
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+            ["ii"] = "@conditional.inner",
+            ["ai"] = "@conditional.outer",
+            ["il"] = "@loop.inner",
+            ["al"] = "@loop.outer",
+            ["at"] = "@comment.outer",
+            -- Adicionando novos keymaps
+            ["ao"] = "@attribute.outer",
+            ["io"] = "@attribute.inner",
+            ["a="] = "@assignment.outer", -- Atalho para navegar por atribuições
+            ["i="] = "@assignment.inner",
+            ["ak"] = "@key.outer", -- Atalho para chave em chave-valor
+            ["ik"] = "@key.inner",
+            ["av"] = "@value.outer", -- Atalho para valor em chave-valor
+            ["iv"] = "@value.inner",
+          },
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+        },
+      },
+      highlight = { enable = true },
       indent = {
         enable = true,
       },
+    },
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
   },
   {

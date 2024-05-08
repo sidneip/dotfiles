@@ -1,5 +1,7 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
+-- vim.o.cursorline = true
+-- vim.cmd [[highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=LightGrey guifg=NONE]]
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -103,3 +105,5 @@ vim.g.neoformat_enabled_typescript = { "prettier" }
 require("mini.bracketed").setup()
 require("mini.surround").setup()
 require("mini.ai").setup()
+require("mini.extra").setup()
+require("mini.pick").setup()
